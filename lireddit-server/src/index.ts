@@ -1,16 +1,10 @@
 import { MikroORM } from "@mikro-orm/core";
 import { __prod__ } from "./constants";
 import { Post } from "./entities/Post";
+import microConfig from "./mikro-orm.config"
 
 const main = async () => {
-    const orm = await MikroORM.init({
-        entities: [Post],
-        dbName: 'lireddit',
-        type: 'postgresql',
-        user:'minhradz',
-        password: '',
-        debug: !__prod__,
-    });
+    const orm = await MikroORM.init(microConfig);
 
     // create a post 
     // ! This does not actually insert a post into the database
@@ -19,6 +13,4 @@ const main = async () => {
     await orm.em.persistAndFlush(post);
 }
 
-main().catch(err => {
-    console.error(err);
-});
+main().catch();
