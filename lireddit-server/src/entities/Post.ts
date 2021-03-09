@@ -1,7 +1,7 @@
 import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
 
 @Entity()
-export class post {
+export class Post {
     @PrimaryKey()
     id!: number;
 

@@ -1,6 +1,6 @@
 import { MikroORM } from "@mikro-orm/core";
 import { __prod__ } from "./constants";
-import { post } from "./entities/Post";
+import { Post } from "./entities/Post";
 import microConfig from "./mikro-orm.config"
 
 const main = async () => {
@@ -12,9 +12,9 @@ const main = async () => {
     // create a post 
     // ! This does not actually insert a post into the database
     // ! This is just the same as `const post = new Post()`
-    const create_post = orm.em.create(post, {title: 'my first post'});
+    const create_post = orm.em.create(Post, {title: 'my first post'});
     await orm.em.persistAndFlush(create_post);
-    const posts = await orm.em.find(post, {});
+    const posts = await orm.em.find(Post, {});
     console.log(posts);
 }
 
