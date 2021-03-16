@@ -18,6 +18,7 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
   - Run `yarn install` to install dependencies.
 
 - Note for Testing
+
   Comment out the line `await orm.getMigrator().up()` to avoid `TableExistException` after the first run.
 
 ## Technical write up
@@ -25,7 +26,11 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
 ### Why use an ORM (Object Relational Mapping) ?
 
 Orm is basically just a way we can interact with the Postgresql database using Typescript.
-It abtracts the underlying SQL queries and let us manipulate the database using our programming language of choice
+It abtracts the underlying SQL queries and let us manipulate the database using our programming language of choice.
+
+### What is Migration ?
+
+Migrations are a type of version control like git but for databases. You can modify the database schema. Migrations often come with the Schema Builder to manage the schema.
 
 ## Pro tip learned from Ben Awad: How to make types more specific in Typescript
 
@@ -37,7 +42,7 @@ bob = {
 };
 ```
 
-But we want to make TS thinks this as type "name"
+But we want to make TS thinks this as type/property "name"
 
 Solution: by casting the object/type as const
 
