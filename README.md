@@ -19,7 +19,7 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
 
 - Note for Testing
 
-  Comment out the line `await orm.getMigrator().up()` to avoid `TableExistException` after the first run.
+  ~~Comment out the line `await orm.getMigrator().up()` to avoid `TableExistException` after the first run.~~
 
 ## Technical write up
 
