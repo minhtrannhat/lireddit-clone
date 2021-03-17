@@ -13,7 +13,7 @@ const main = async () => {
   const orm = await MikroORM.init(microConfig);
 
   // run migrations
-  // orm.getMigrator().up();
+  orm.getMigrator().up();
 
   const app = express();
 
