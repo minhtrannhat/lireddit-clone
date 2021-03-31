@@ -15,7 +15,7 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
   - Install all the dependencies
   - Run `createdb lireddit` to create the database.
   - Open the `lireddit-server` folder, navigate to `mikro-orm.config.ts` to change the username and password of your postgresql user (! must be a super user).
-  - Run `yarn install` to install dependencies.
+  - Run `yarn install` inside `lireddit-server` to install dependencies for the backend.
 
 - Note for Testing
 
