@@ -2,11 +2,13 @@ import "reflect-metadata";
 import { MikroORM } from "@mikro-orm/core";
 import { __prod__ } from "./constants";
 import { Post } from "./entities/Post";
+import { User } from "./entities/User"
 import microConfig from "./mikro-orm.config";
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 import { PostResolver } from "./resolvers/post";
+import { UserResolver } from "./resolvers/user";
 
 const main = async () => {
   // connect to database
@@ -19,7 +21,7 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [PostResolver],
+      resolvers: [PostResolver, UserResolver],
       validate: false,
     }),
     context: () => ({ em: orm.em }),
@@ -40,7 +42,9 @@ const main = async () => {
   // const create_post = orm.em.create(Post, {title: 'my first post'});
   // await orm.em.persistAndFlush(create_post);
   const posts = await orm.em.find(Post, {});
+  const users = await orm.em.find(User, {});
   console.log(posts);
+  console.log(users);
 };
 
 main().catch((err) => {
