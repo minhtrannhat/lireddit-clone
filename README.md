@@ -51,3 +51,15 @@ bob = {
   name: "bob",
 } as const;
 ```
+## How to send graphql from the command line
+
+1. Make sure your express server is up and running on port 4000.
+2. *Optional*: install `jq` to prettify your terminal json output.
+3.
+```bash
+curl '127.0.0.1:4000/graphql' \ # The express server address
+      -X POST \ # the POST HTTP verb, GET is also supported too
+      -H 'content-type: application/json' \ # the query is a part of a json object
+      --data '{ "query": "{posts {createAt updatedAt id title}}"}' | jq # query for posts then pipes the data to jq for pretty output
+```
+
