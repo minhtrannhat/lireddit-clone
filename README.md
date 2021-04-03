@@ -15,7 +15,7 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
   - Install all the dependencies
   - Run `createdb lireddit` to create the database.
   - Open the `lireddit-server` folder, navigate to `mikro-orm.config.ts` to change the username and password of your postgresql user (! must be a super user).
-  - Run `yarn install` to install dependencies.
+  - Run `yarn install` inside `lireddit-server` to install dependencies for the backend.
 
 - Note for Testing
 
@@ -51,3 +51,15 @@ bob = {
   name: "bob",
 } as const;
 ```
+## How to send graphql from the command line
+
+1. Make sure your express server is up and running on port 4000.
+2. *Optional*: install `jq` to prettify your terminal json output.
+3.
+```bash
+curl '127.0.0.1:4000/graphql' \ # The express server address
+      -X POST \ # the POST HTTP verb, GET is also supported too
+      -H 'content-type: application/json' \ # the query is a part of a json object
+      --data '{ "query": "{posts {createAt updatedAt id title}}"}' | jq # query for posts then pipes the data to jq for pretty output
+```
+
