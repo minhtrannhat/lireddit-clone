@@ -4,13 +4,14 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
 
 ## Local Installation
 
-- Dependencies
+- Dependencies for the backend
 
   - yarn
   - node
   - postgresql
+  - redis
 
-- Installation Steps
+- Configuration Steps
 
   - Install all the dependencies
   - Run `createdb lireddit` to create the database.
@@ -20,6 +21,12 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
 - Note for Testing
 
   ~~Comment out the line `await orm.getMigrator().up()` to avoid `TableExistException` after the first run.~~
+
+## Checklist
+
+- [ ] start `postgresql`
+- [ ] start `redis`
+- [ ] run `yarn dev` to start the backend
 
 ## Technical write up
 
@@ -62,4 +69,6 @@ curl '127.0.0.1:4000/graphql' \ # The express server address
       -H 'content-type: application/json' \ # the query is a part of a json object
       --data '{ "query": "{posts {createAt updatedAt id title}}"}' | jq # query for posts then pipes the data to jq for pretty output
 ```
-
+## Ampersand in a type position in Typescript
+The Ampersand `&` in a type position in Typescript means intersection types.
+An intersection type combines multiples types into one.
