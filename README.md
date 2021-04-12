@@ -72,3 +72,24 @@ curl '127.0.0.1:4000/graphql' \ # The express server address
 ## Ampersand in a type position in Typescript
 The Ampersand `&` in a type position in Typescript means intersection types.
 An intersection type combines multiples types into one.
+
+## How cookies and sessions work
+
+### Sessions explained
+
+A session creates a file in a temporary directory on the backend server
+that is available to all pages on the site. This makes sure that the user do not
+have to re-login to the site when they're browsing the sub pages.
+
+Sessions ends when the browser is closed or when the user leaves the site.
+
+### The role of redis
+`redis` is a key-value data structure (sort of like python dict). `redis` stores the user id
+into the session object by `express-session`
+
+### Cookies explained
+
+The `express-session` will set a cookie on the user browser: `qwefasdfqoritoa12341`.
+When the user makes a request, the cookie will be sent to the server. The server
+than decrypt the cookie to check if there is a session matching of the cookie. If yes,
+the data (userid) is used.
