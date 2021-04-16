@@ -47,14 +47,14 @@ export class UserResolver {
   @Query(() => User, { nullable: true })
   async me(@Ctx() { req, em }: MyContext) {
     if (!req.session.UserId) {
-      return null
+      return null;
     }
 
     const user = await em.findOne(User, { id: req.session.UserId });
     return user;
   }
 
-  @Mutation(() => User)
+  @Mutation(() => UserResponse)
   async register(
     @Arg("options") options: UsernamePasswordInput,
     @Ctx() { em }: MyContext
