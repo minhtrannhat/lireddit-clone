@@ -30,9 +30,7 @@ const main = async () => {
     cors({
       origin: "http://127.0.0.1:3000",
       credentials: true,
-    })
-  );
-  app.use(
+    }),
     session({
       name: "qid",
       store: new RedisStore({
@@ -63,14 +61,6 @@ const main = async () => {
     app,
     cors: false,
   });
-
-  app.get("/", (_, res) => {
-    res.send("hello world!");
-  });
-  app.listen(4000, () => {
-    console.log("server started on localhost:4000");
-  });
-
   // create a post
   // ! This does not actually insert a post into the database
   // ! This is just the same as `const post = new Post()`
