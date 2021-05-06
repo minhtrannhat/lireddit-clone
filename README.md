@@ -91,5 +91,5 @@ into the session object by `express-session`
 
 The `express-session` will set a cookie on the user browser: `qwefasdfqoritoa12341`.
 When the user makes a request, the cookie will be sent to the server. The server
-than decrypt the cookie to check if there is a session matching of the cookie. If yes,
+then decrypt the cookie to check if there is a session matching of the cookie. If yes,
 the data (userid) is used.
