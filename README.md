@@ -2,7 +2,7 @@
 
 Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v=I6ypD7qv3Z8&t=2374s
 
-## Local Installation
+## Backend Installation
 
 - Dependencies for the backend
 
@@ -15,18 +15,26 @@ Based largely on Ben Awad Full Stack tutorial at https://www.youtube.com/watch?v
 
   - Install all the dependencies
   - Run `createdb lireddit` to create the database.
-  - Open the `lireddit-server` folder, navigate to `mikro-orm.config.ts` to change the username and password of your postgresql user (! must be a super user).
+  - Clone the repository.
   - Run `yarn install` inside `lireddit-server` to install dependencies for the backend.
+  - Create a `.env` file inside the `lireddit-server/` folder with your secrets. It should look like this:
+   ```
+  DATABASENAME = 
+  POSTGRESQL_USERNAME = 
+  EXPRESS_SESSION_NAME = 
+  EXPRESS_SESSION_SECRET = 
+  ```
+  - Run `tsc -w` inside `lireddit-server` to compile all Typescript code into Javascript.
 
-- Note for Testing
+  - Start `postgresql` service on your server.
+  - Start `redis` service on your server.
+  - Run `yarn dev` to start the development backend server.
 
-  ~~Comment out the line `await orm.getMigrator().up()` to avoid `TableExistException` after the first run.~~
+## Front-end Installation
 
-## Checklist
-
-- [ ] start `postgresql`
-- [ ] start `redis`
-- [ ] run `yarn dev` to start the backend
+- Clone the repository.
+- Navigate to `lireddit-web` and run `yarn install` to install all the dependencies.
+- Run `yarn dev` to start the development build of the front-end.
 
 ## Technical write up
 
