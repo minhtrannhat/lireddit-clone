@@ -10,7 +10,7 @@ export class User {
 
   @Field(() => String)
   @Property({ type: "date" })
-  createAt = new Date();
+  createdAt = new Date();
 
   @Field(() => String)
   @Property({ type: "date", onUpdate: () => new Date() })
