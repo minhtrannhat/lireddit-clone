@@ -67,6 +67,7 @@ const main = async () => {
   app.listen(4000, () => {
     console.log("server started on localhost:4000");
   });
+
   // create a post
   // ! This does not actually insert a post into the database
   // ! This is just the same as `const post = new Post()`
