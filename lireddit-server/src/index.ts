@@ -14,6 +14,8 @@ import session from "express-session";
 import connectRedis from "connect-redis";
 import cors from "cors";
 
+require('dotenv').config()
+
 const main = async () => {
   // connect to database
   const orm = await MikroORM.init(microConfig);
@@ -32,7 +34,7 @@ const main = async () => {
       credentials: true,
     }),
     session({
-      name: "qid",
+      name: process.env.EXPRESS_SESSION_NAME,
       store: new RedisStore({
         client: redisClient,
         disableTouch: true,
@@ -44,7 +46,7 @@ const main = async () => {
         secure: __prod__, // cookie only works in https
       },
       saveUninitialized: false,
-      secret: "qiuwhefiquwhflkajsdhlfkajdh",
+      secret: "process.env.EXPRESS_SESSION_SECRET",
       resave: false,
     })
   );
@@ -61,6 +63,11 @@ const main = async () => {
     app,
     cors: false,
   });
+
+  app.listen(4000, () => {
+    console.log("server started on localhost:4000");
+  });
+
   // create a post
   // ! This does not actually insert a post into the database
   // ! This is just the same as `const post = new Post()`
