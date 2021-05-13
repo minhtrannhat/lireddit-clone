@@ -1,7 +1,12 @@
 import { ChakraProvider, ColorModeProvider } from "@chakra-ui/react";
 import { createClient, dedupExchange, fetchExchange, Provider } from "urql";
 import { cacheExchange, QueryInput, Cache } from "@urql/exchange-graphcache";
-import { MeDocument, MeQuery, LoginMutation, RegisterMutation } from "../generated/graphql";
+import {
+  MeDocument,
+  MeQuery,
+  LoginMutation,
+  RegisterMutation,
+} from "../generated/graphql";
 import theme from "../theme";
 
 function betterUpdateQuery<Result, Query>(
@@ -23,11 +28,38 @@ const client = createClient({
     cacheExchange({
       updates: {
         Mutation: {
-          login: (result, args, cache, info) => {
-            cache.updateQuery({query: MeDocument}, data => {
-              data.
-            });
+          login: (_result, args, cache, info) => {
+            betterUpdateQuery<LoginMutation, MeQuery>(
+              cache,
+              { query: MeDocument },
+              _result,
+              (result, query) => {
+                if (result.login.errors) {
+                  return query;
+                } else {
+                  return {
+                    me: result.login.user,
+                  };
+                }
+              }
+            );
           },
+        },
+        register: (_result, args, cache, info) => {
+          betterUpdateQuery<RegisterMutation, MeQuery>(
+            cache,
+            { query: MeDocument },
+            _result,
+            (result, query) => {
+              if (result.register.errors) {
+                return query;
+              } else {
+                return {
+                  me: result.register.user,
+                };
+              }
+            }
+          );
         },
         Subscription: {
           subscriptionField: (result, args, cache, info) => {
@@ -39,7 +71,6 @@ const client = createClient({
     fetchExchange,
   ],
 });
-
 
 function MyApp({ Component, pageProps }) {
   return (
