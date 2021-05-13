@@ -348,9 +348,9 @@
   integrity sha512-2aoSC4UUbHDj2uCsCxcG/vRMXey/m17bC7UwitVm5hn22nI8O8Y9iDpA76Orc+DWkQ4zZrOKEshCqR/jSuXAHA==
 
 "@types/ioredis@*":
-  version "4.26.1"
-  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.26.1.tgz#761f1812c48a3ecfbd9d9ecd35c49849f8693e2e"
-  integrity sha512-k9f+bda6y0ZNrwUMNYI9mqIPqjPZ4Jqc+jTRTUyhFz8aD8cHQBk+uenTKCZj9RhdfrU4sSqrot5sn5LqkAHODw==
+  version "4.26.3"
+  resolved "https://registry.yarnpkg.com/@types/ioredis/-/ioredis-4.26.3.tgz#5b660125d07214c67a5d9a0d9c678375c717d93f"
+  integrity sha512-2YiIUTo/MCZidXXfHAIoh2DUlGEG7zYFMfz0VXzTpI5934/wBCT5a/pR24lHCKk9WQNIlYauIFxQHcAF93w1FA==
   dependencies:
     "@types/node" "*"
 
@@ -490,9 +490,9 @@
   integrity sha512-DaOWN1zf7j+8nHhqXhIgNmS+ltAC53NXqGxYuBhWqWgqolRhddKzfZU814lkHQSTG0IUfQxU7Cg0gb8fFWo2mA==
 
 "@types/ws@^7.0.0":
-  version "7.4.2"
-  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-7.4.2.tgz#bfe739b5f8b3a39742605fbe415ae7e88ee614c8"
-  integrity sha512-PbeN0Eydl7LQl4OIav29YmkO2LxbVuz3nZD/kb19lOS+wLgIkRbWMNmU/QQR7ABpOJ7D7xDOU8co7iohObewrw==
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/@types/ws/-/ws-7.4.3.tgz#eb68ffe017489566164f859cd88513907f50a18a"
+  integrity sha512-LiMEM1yWxVHbFLGn00ADIg/EKjZsX7B29pioAr8Qe4yZtqSEl+aRcuGukxqA7I/7aZqOfrYdJpFEPNKB0cmhbg==
   dependencies:
     "@types/node" "*"
 
@@ -2206,9 +2206,9 @@ is-ci@^2.0.0:
     ci-info "^2.0.0"
 
 is-core-module@^2.2.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.3.0.tgz#d341652e3408bca69c4671b79a0954a3d349f887"
-  integrity sha512-xSphU2KG9867tsYdLD4RWQ1VqdFl4HTO9Thf3I/3dLEfr0dbPTWKsuCKrgqMljg4nPE+Gq0VCnzT3gr0CyBmsw==
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.4.0.tgz#8e9fc8e15027b011418026e98f0e6f4d86305cc1"
+  integrity sha512-6A2fkfq1rfeQZjxrZJGerpLCTHRNEBiSgnu0+obeJpEPZRUooHgsizvzv0ZjJwOz3iWIHdJtVWJ/tmPr3D21/A==
   dependencies:
     has "^1.0.3"
 

@@ -13,7 +13,7 @@ import { InputField } from "../components/InputField";
 import { useMutation } from "urql";
 import { useRegisterMutation } from "../generated/graphql";
 import { toErrorMap } from "../utils/toErrorMap";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 
 interface registerProps {}
 

@@ -124,7 +124,7 @@ export class UserResolver {
     @Arg("options") options: UsernamePasswordInput,
     @Ctx() { em, req }: MyContext
   ): Promise<UserResponse> {
-    const user = await em.findOneOrFail(User, { username: options.username });
+    const user = await em.findOne(User, { username: options.username });
     if (!user) {
       return {
         errors: [
@@ -143,7 +143,7 @@ export class UserResolver {
         errors: [
           {
             field: "password",
-            message: "The username and/or password are incorrect.",
+            message: "The password is incorrect.",
           },
         ],
       };
